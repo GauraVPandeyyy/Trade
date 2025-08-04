@@ -6,12 +6,11 @@ import Wallet from "../pages/Wallet";
 import Kyc from "../pages/Kyc";
 import DownloadApk from "../pages/DownloadApk";
 import { createBrowserRouter } from "react-router-dom";
-import Dashboard from "../pages/Dashboard";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Dashboard />, 
+    element: <App />, 
     children: [
       { 
         index: true,

@@ -37,7 +37,7 @@ const Dashboard = () => {
       <Sidebar isOpen={isOpen} onClose={close} isMobile={isMobile} />
       
       {/* Main Content */}
-      <div className={`flex-1 flex flex-col transition-all duration-300 ${!isMobile ? 'ml-0' : ''}`}>
+      <div className={`flex-1 flex flex-col transition-all duration-300 ${!isMobile ? 'ml-0 md:ml-60' : ''}`}>
         {/* Header */}
         <Header onMenuClick={toggle} isMobile={isMobile} />
 
