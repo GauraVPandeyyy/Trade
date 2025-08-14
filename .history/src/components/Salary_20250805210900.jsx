@@ -1,0 +1,36 @@
+import React from 'react'
+import { useOutletContext } from 'react-router-dom';
+
+function Salary() {
+    const { promotionData } = useOutletContext();
+  
+  return (
+    <div className="w-full max-w-6xl mx-auto p-4 space-y-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div>
+          <h1>Important Note</h1>
+          <img src="https://metafutureservices.com/assets/refralimg-CSYg7Cri.jpg" alt="" />
+          <ul>
+            <li>Add minimum 2 downline with the fund of 6 Lacs.</li>
+            <li>For carry-on salary, extra 20% value of weaker downline.
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h1>Salary History</h1>
+          <div>
+            <h4 className="font-medium ">{promotionData.user}</h4>
+            <span className={`px-3 py-1 rounded-full text-xs font-medium ${promotionData.status == true
+                    ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400'
+                    : 'bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400'
+                  }`}>
+                  {promotionData.status == true ? 'Success' : 'Pending'}
+                </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default Salary
