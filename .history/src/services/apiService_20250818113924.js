@@ -68,24 +68,19 @@ export const getInvestmentSummary = async (userId) => {
 export const getCategories = async ()=>{
   try {
     const response = await api.get("/products");
-    console.log("categories" , response.data)
-    return response.data.types;
+    return response.data;
   } catch (error) {
     console.error("Product fetch failed:", error);
     throw error;
   }
 }
 
-export const getPackagesByType = async (id)=>{
+export const getProductByType = async (id)=>{
   try {
     const response = await api.get(`products-by-type?type=${id}`);
-    return response.data.products;
+    return response.data;
   } catch (error) {
     console.error("Product by type fetch failed:", error);
     throw error;
   }
-}
-
-export const joinProduct = ()=>{
-  return 4;
 }

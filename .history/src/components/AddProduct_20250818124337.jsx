@@ -56,7 +56,6 @@ const AddProduct = ({ open, onClose, walletBalance = 0 }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("form.category  : ----",form.category , "form.packages : ----",form.package , "form.schema  : ----",form.scheme );
     if (!validate()) {
       toast.error("Please fill all fields.");
       return;
@@ -84,8 +83,8 @@ const AddProduct = ({ open, onClose, walletBalance = 0 }) => {
   if (!open) return null;
 
   return (
-    <div className="fixed top-0 right-0 left-0 w-full bg-black/50 backdrop-blur-sm flex items-center justify-center z-[9999] px-4 py-0 overflow-auto h-screen">
-      <div className="bg-gradient-to-br from-[#1a2035] to-[#0f1324] relative w-full md:w-lg mx-auto p-6 rounded-2xl shadow-2xl border border-[#2a3245] animate-fade-in-up overflow-auto">
+    <div className="fixed top-8 right-9 left-9 w-full bg-black/50 backdrop-blur-sm flex items-center justify-center z-[9999] p-4">
+      <div className="bg-gradient-to-br from-[#1a2035] to-[#0f1324] relative w-full mx-auto p-6 rounded-2xl shadow-2xl border border-[#2a3245] animate-fade-in-up">
         {/* Close button */}
         <button
           onClick={onClose}
@@ -101,7 +100,7 @@ const AddProduct = ({ open, onClose, walletBalance = 0 }) => {
             <Gift className="w-5 h-5 text-green-400" />
           </div>
           <h2 className="text-2xl font-bold text-white">Join a Package</h2>
-          {/* <p className="text-[#8a94b3] text-sm mt-1">Select your preferred investment plan</p> */}
+          <p className="text-[#8a94b3] text-sm mt-1">Select your preferred investment plan</p>
         </div>
 
         {/* Wallet Balance */}

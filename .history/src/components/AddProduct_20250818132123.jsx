@@ -56,7 +56,8 @@ const AddProduct = ({ open, onClose, walletBalance = 0 }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("form.category  : ----",form.category , "form.packages : ----",form.package , "form.schema  : ----",form.scheme );
+    console.log("form.category, 
+        package: form.package")
     if (!validate()) {
       toast.error("Please fill all fields.");
       return;

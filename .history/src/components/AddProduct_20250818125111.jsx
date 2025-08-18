@@ -56,7 +56,6 @@ const AddProduct = ({ open, onClose, walletBalance = 0 }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("form.category  : ----",form.category , "form.packages : ----",form.package , "form.schema  : ----",form.scheme );
     if (!validate()) {
       toast.error("Please fill all fields.");
       return;
@@ -84,8 +83,8 @@ const AddProduct = ({ open, onClose, walletBalance = 0 }) => {
   if (!open) return null;
 
   return (
-    <div className="fixed top-0 right-0 left-0 w-full bg-black/50 backdrop-blur-sm flex items-center justify-center z-[9999] px-4 py-0 overflow-auto h-screen">
-      <div className="bg-gradient-to-br from-[#1a2035] to-[#0f1324] relative w-full md:w-lg mx-auto p-6 rounded-2xl shadow-2xl border border-[#2a3245] animate-fade-in-up overflow-auto">
+    <div className="fixed top-0 right-0 left-0 w-full bg-black/50 backdrop-blur-sm flex items-center justify-center z-[9999] px-4 py-0 overflow-auto">
+      <div className="bg-gradient-to-br from-[#1a2035] to-[#0f1324] relative max-w-3xl min mx-auto p-6 rounded-2xl shadow-2xl border border-[#2a3245] animate-fade-in-up overflow-auto">
         {/* Close button */}
         <button
           onClick={onClose}

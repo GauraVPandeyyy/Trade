@@ -55,7 +55,7 @@ const Header = ({ onMenuClick, isMobile }) => {
 
 
                 {/* Right Side */}
-                <div className="flex items-center space-x-4 relative">
+                <div className="flex items-center space-x-4">
                     {/* Notifications */}
                     <div className="relative">
                         <button className="p-3 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-xl transition-all duration-300 hover:scale-110 relative group">
@@ -69,24 +69,19 @@ const Header = ({ onMenuClick, isMobile }) => {
 
                     {/* Join Product Button */}
                     <div className='relative'>
-                        <button onClick={() => setShowAddProduct(true)} className="relative bg-gradient-to-br from-green-300 to-blue-400 text-sm text-white px-4 py-2 rounded-lg font-medium hover:from-green-300 hover:to-blue-300 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-green-500/25 group overflow-hidden">
+                        <button onClick={() => setShowAddProduct(true)} className="relative bg-gradient-to-br from-green-300 to-blue-400 text-sm text-white px-4 py-2 rounded-lg font-medium hover:from-green-300 hover:to-blue-300 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-green-500/25 group overflow-hi">
                             <span className="relative z-10">Join Product</span>
                             <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                         </button>
 
                         {/* <button onClick={() => setShowAddProduct(true)} ...>Join Product</button> */}
                         {/* add product form */}
-                        {/* <AddProduct
+                        <AddProduct
                             open={showAddProduct}
                             onClose={() => setShowAddProduct(false)}
                             walletBalance={user.wallet || 0}
-                        /> */}
+                        />
                     </div>
-                    <AddProduct
-                        open={showAddProduct}
-                        onClose={() => setShowAddProduct(false)}
-                        walletBalance={user.wallet || 0}
-                    />
 
                     {/* Profile Dropdown */}
                     <div className="relative">

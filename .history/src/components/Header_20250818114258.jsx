@@ -55,7 +55,7 @@ const Header = ({ onMenuClick, isMobile }) => {
 
 
                 {/* Right Side */}
-                <div className="flex items-center space-x-4 relative">
+                <div className="flex items-center space-x-4">
                     {/* Notifications */}
                     <div className="relative">
                         <button className="p-3 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-xl transition-all duration-300 hover:scale-110 relative group">
@@ -74,19 +74,10 @@ const Header = ({ onMenuClick, isMobile }) => {
                             <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                         </button>
 
-                        {/* <button onClick={() => setShowAddProduct(true)} ...>Join Product</button> */}
+                        <button onClick={() => setShowAddProduct(true)} ...>Join Product</button>
                         {/* add product form */}
-                        {/* <AddProduct
-                            open={showAddProduct}
-                            onClose={() => setShowAddProduct(false)}
-                            walletBalance={user.wallet || 0}
-                        /> */}
+                        <AddProduct />
                     </div>
-                    <AddProduct
-                        open={showAddProduct}
-                        onClose={() => setShowAddProduct(false)}
-                        walletBalance={user.wallet || 0}
-                    />
 
                     {/* Profile Dropdown */}
                     <div className="relative">
