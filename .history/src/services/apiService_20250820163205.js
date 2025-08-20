@@ -1,0 +1,139 @@
+import axios from 'axios';
+import { toast } from 'react-toastify';
+
+const API_BASE_URL = "https://newadmin.gamedemo.tech/api";
+const api = axios.create({
+  baseURL: API_BASE_URL,
+  timeout: 10000
+});
+
+
+export const getCaptcha = async () => {
+  try {
+    const response = await api.get("/gaurav-captcha");
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching captcha:", error);
+    throw error;
+  }
+};
+
+
+export const registerUser = async (userData) => {
+  try {
+    const response = await axios.post(`${API_BASE_URL}/gaurav_register`, userData);
+    console.log("Register", response.data);
+    return response.data;
+  } catch (error) {
+    console.error("Registration failed:", error);
+    throw error;
+  }
+};
+
+export const loginUser = async (credentials) => {
+  try {
+    const response = await axios.post(`${API_BASE_URL}/gaurav_login`, credentials);
+    console.log(response.data);
+    console.log(response.data.user);
+    return response.data;
+  } catch (error) {
+    console.error("Login failed:", error);
+    throw error;
+  }
+};
+// side bar data
+
+export const getHomeData = async (userId) => {
+  try {
+    const response = await api.get(`/user-dashboard/${userId}`);
+    // console.log("Home data" ,response.data);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching user-dashboard :", error);
+    toast.error("Error fetching user-dashboard:", error);
+    throw error;
+  }
+}
+
+export const getInvestmentSummary = async (userId) => {
+  try {
+    const response = await api.get(`/investment-summary/${userId}`);
+    return response.data;
+  } catch (error) {
+    console.error("Investment summary fetch failed:", error);
+    throw error;
+  }
+};
+
+export const getCategories = async () => {
+  try {
+    const response = await api.get("/products");
+    console.log("categories", response.data)
+    return response.data.types;
+  } catch (error) {
+    console.error("Product fetch failed:", error);
+    throw error;
+  }
+}
+
+export const getPackagesByType = async (id) => {
+  try {
+    const response = await api.get(`products-by-type?type=${id}`);
+    return response.data.products;
+  } catch (error) {
+    console.error("Product by type fetch failed:", error);
+    throw error;
+  }
+}
+
+export const joinProduct = async (productData) => {
+  try {
+    console.log("Sending product data:", productData);
+    const response = await api.post("/invest", productData);
+    console.log(response.data);
+    return response.data;
+  } catch (error) {
+    console.error("Join product failed:", error.response?.data || error);
+    throw error;
+  }
+};
+
+// apiService.js
+
+export const getIndiaStates = async () => {
+  try {
+    const response = await api.get("/get-india-states");
+    console.log("get-india-states",response.data);
+    return response.data;
+  } catch (error) {
+    console.error("India states fetch failed:", error);
+    throw error;
+  }
+};
+
+export const getDistrictsByState = async (state) => {
+  try {
+    const response = await api.post('/districts', { state });
+    return response.data;
+  } catch (error) {
+    console.error("Districts by state fetch failed:", error);
+    throw error;
+  }
+};
+
+
+// apiService.jsx
+export const submitKyc = async (kycData) => {
+  try {
+    const response = await api.post('/submit-kyc', kycData, {
+      headers: { "Content-Type": "application/json" },
+    });
+    return response.data;
+  } catch (error) {
+    // If backend sends validation errors
+    if (error.response && error.response.data) {
+      throw error.response.data;
+    }
+    throw error;
+  }
+};
