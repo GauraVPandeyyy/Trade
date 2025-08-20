@@ -447,7 +447,7 @@ const InputField = ({
       className={`w-full px-4 py-3 bg-gray-700 border ${error ? "border-red-500 shake-animation" : "border-gray-600"
         } rounded-lg text-white focus:outline-none focus:ring-2 ${error ? "focus:ring-red-500" : "focus:ring-blue-500"
         } transition-all`}
-      required={name === "sponser_id" || name === "sponser_name" ? false : required}
+      required={name === "sponser_id" || name "sponser_name" ? null : required}
     />
     {error && <p className="text-red-400 text-xs mt-1 animate-fade-in">{error}</p>}
   </div>

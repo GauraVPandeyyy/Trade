@@ -167,7 +167,7 @@ function Wallet() {
           </div>
 
           <div className='grid grid-cols-2 gap-4'>
-            <button className="mt-4 w-full bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md font-medium shadow-md transition-colors duration-200">
+            <button className="mt-4 w-full bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md font-medium shadow-md transition-colors duration-200 fo">
               Withdraw
             </button>
 

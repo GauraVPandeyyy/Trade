@@ -14,7 +14,6 @@ import TeamTree from "../pages/TeamTree";
 import Login from "../Auth/Login"; 
 import Register from "../Auth/Register"; 
 import ProtectedRoute from "./ProtectedRoute";
-import Withdrawal from "../components/Withdrawal";
 
 const router = createBrowserRouter([
 
@@ -84,7 +83,7 @@ const router = createBrowserRouter([
           },
           {
             path: "withdrawal",
-            element: <Withdrawal />
+            element: <TeamTree />
           },
         ],
       },

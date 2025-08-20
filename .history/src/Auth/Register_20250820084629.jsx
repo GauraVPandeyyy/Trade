@@ -153,25 +153,25 @@ function Register() {
         {/* Form */}
         <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {[
-            "sponser_id",
-            "sponser_name",
-            "applicant_name",
-            "mobile_no",
-            "gmail",
-            "password",
-            "state",
-            "city",
-            "address",
-            "bank_name",
-            "branch",
-            "ifsc_code",
-            "account_number",
-            "pancard",
-            "adhar_card",
-          ].map((field) => {
-            if (field === "state") {
+            { name: "sponser_id", required: false },
+            { name: "sponser_name", required: false },
+            { name: "applicant_name", required: true },
+            { name: "mobile_no", required: true },
+            { name: "gmail", required: true },
+            { name: "password", required: true },
+            { name: "state", required: true },
+            { name: "city", required: true },
+            { name: "address", required: true },
+            { name: "bank_name", required: true },
+            { name: "branch", required: true },
+            { name: "ifsc_code", required: true },
+            { name: "account_number", required: true },
+            { name: "pancard", required: true },
+            { name: "adhar_card", required: true }
+          ].map(({ name, required }) => {
+            if (name === "state") {
               return (
-                <div key={field} className="w-full relative animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+                <div key={name} className="w-full relative animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
                   <label className="block text-sm font-medium text-gray-300 mb-1">
                     State *
                   </label>
@@ -198,9 +198,9 @@ function Register() {
               );
             }
 
-            if (field === "city") {
+            if (name === "city") {
               return (
-                <div key={field} className="w-full relative animate-fade-in-up" style={{ animationDelay: "0.15s" }}>
+                <div key={name} className="w-full relative animate-fade-in-up" style={{ animationDelay: "0.15s" }}>
                   <label className="block text-sm font-medium text-gray-300 mb-1">
                     City *
                   </label>
@@ -228,9 +228,9 @@ function Register() {
               );
             }
 
-            if (field === "password") {
+            if (name === "password") {
               return (
-                <div key={field} className="w-full relative animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+                <div key={name} className="w-full relative animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
                   <label className="block text-sm font-medium text-gray-300 mb-1">
                     {field.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())} *
                   </label>
@@ -297,7 +297,7 @@ function Register() {
                 </div>
                 {errors.captcha_code && <p className="text-red-400 text-xs mt-1 animate-fade-in">{errors.captcha_code}</p>}
               </div>
-              
+
               <div className="flex items-center justify-between bg-black/40 p-0 rounded-lg border border-gray-600 w-full md:w-auto">
                 <div className="flex items-center">
                   <span className="text-xl font-bold tracking-widest text-white select-none bg-gradient-to-r from-gray-800 to-gray-900 p-2 rounded-md border border-gray-600">

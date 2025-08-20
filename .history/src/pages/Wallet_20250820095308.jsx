@@ -15,14 +15,7 @@ function Wallet() {
 
   const [invData, setInvData] = useState(null);
   const [loading, setLoading] = useState(true);
-  // const [capital, setCapital] = useState(0);
-  // const [roi, setRoi] = useState(0);
-
-  const [totals, setTotals] = useState({
-    capital: 0,
-    roi: 0
-  });
-
+const [capital , setCapital] = useState ()
   const { user } = useAuthContext();
   useEffect(() => {
     const fetchInvFundData = async () => {
@@ -36,6 +29,7 @@ function Wallet() {
       } finally {
         setLoading(false);
       }
+
     }
 
     if (user?.user_id) {
@@ -44,26 +38,29 @@ function Wallet() {
 
   }, [user]);
 
+  let roi = 0;
+  let capital = 0;
 
-  useEffect(() => {
-    if (invData?.data) {
-      const newTotals = invData.data.reduce((acc, item) => ({
-        capital: acc.capital + parseFloat(item.capital || 0),
-        roi: acc.roi + parseFloat(item.ROI || 0)
-      }), { capital: 0, roi: 0 });
 
-      setTotals(newTotals);
-    }
-  }, [invData]);
 
-  console.log("roi", totals.roi, "capital", totals.capital);
+  // useEffect(() => {
+  //   if (invData) {
+  //     invData.forEach((item) => {
+  //       roi += item.current_profit;
+  //       capital += (item.invested) * 0.05;
+  //     })
+  //   }
+
+  // }, [invData]);
+
+  console.log("roi", roi, "capital", capital);
 
 
 
   const walletData = {
     totalBal: 98765432,
     deposit: 0.001,
-    // ROI: 34567,
+    ROI: 34567,
     salary: 0.00,
     CashBack: 9892.02,
     Bonus: 0.00,
@@ -147,34 +144,21 @@ function Wallet() {
               />
             </div>
           </div> */}
-
-          <div className='grid grid-cols-2 gap-4 mb-3'>
+          {/* 
+          <div className='grid grid-cols-2 gap-4 mb-5'>
             <div className='bg-gray-700/50 p-3 rounded-lg'>
               <p className='text-gray-400 text-sm'>Capital</p>
-              <p className='text-white font-semibold text-lg'>
-                ₹{totals.capital.toLocaleString(undefined, {
-                  minimumFractionDigits: 2,
-                  maximumFractionDigits: 2
-                })}
-              </p>
+              <p className='text-white font-semibold text-lg'>₹{capital.toLocaleString()}</p>
             </div>
             <div className='bg-gray-700/50 p-3 rounded-lg'>
               <p className='text-gray-400 text-sm'>ROI</p>
-              <p className='text-green-400 font-semibold text-lg'>
-                {totals.roi.toFixed(2)}%
-              </p>
+              <p className='text-green-400 font-semibold text-lg'>{ROI}%</p>
             </div>
-          </div>
+          </div> */}
 
-          <div className='grid grid-cols-2 gap-4'>
-            <button className="mt-4 w-full bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md font-medium shadow-md transition-colors duration-200">
-              Withdraw
-            </button>
-
-            <button className="mt-4 w-full bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md font-medium shadow-md transition-colors duration-200">
-              Withdraw
-            </button>
-          </div>
+          <button className="mt-4 w-full bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md font-medium shadow-md transition-colors duration-200">
+            Withdraw
+          </button>
         </div>
 
         {/* Salary Card */}

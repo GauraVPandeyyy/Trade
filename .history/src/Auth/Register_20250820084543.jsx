@@ -153,22 +153,22 @@ function Register() {
         {/* Form */}
         <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {[
-            "sponser_id",
-            "sponser_name",
-            "applicant_name",
-            "mobile_no",
-            "gmail",
-            "password",
-            "state",
-            "city",
-            "address",
-            "bank_name",
-            "branch",
-            "ifsc_code",
-            "account_number",
-            "pancard",
-            "adhar_card",
-          ].map((field) => {
+  { name: "sponser_id", required: false },
+  { name: "sponser_name", required: false },
+  { name: "applicant_name", required: true },
+  { name: "mobile_no", required: true },
+  { name: "gmail", required: true },
+  { name: "password", required: true },
+  { name: "state", required: true },
+  { name: "city", required: true },
+  { name: "address", required: true },
+  { name: "bank_name", required: true },
+  { name: "branch", required: true },
+  { name: "ifsc_code", required: true },
+  { name: "account_number", required: true },
+  { name: "pancard", required: true },
+  { name: "adhar_card", required: true }
+].map(({ name, required }) => {
             if (field === "state") {
               return (
                 <div key={field} className="w-full relative animate-fade-in-up" style={{ animationDelay: "0.1s" }}>

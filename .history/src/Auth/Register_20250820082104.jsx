@@ -125,7 +125,7 @@ function Register() {
         //     ? error.response.data.errors[key][0]
         //     : error.response.data.errors[key];
         // });
-        setErrors(error.response.data.errors);
+        setErrors(error.response);
       } else {
         toast.error(error.response?.data?.message || "Server error. Please try again.");
       }
@@ -436,7 +436,7 @@ const InputField = ({
 }) => (
   <div className={`${className} w-full relative animate-fade-in-up`} style={{ animationDelay: `${animationDelay}s` }}>
     <label className="block text-sm font-medium text-gray-300 mb-1">
-      {label} {required && name !== "sponser_id" && name !== "sponser_name" && "*"}
+      {label} {required && "*"}
     </label>
     <input
       id={name}
@@ -447,7 +447,7 @@ const InputField = ({
       className={`w-full px-4 py-3 bg-gray-700 border ${error ? "border-red-500 shake-animation" : "border-gray-600"
         } rounded-lg text-white focus:outline-none focus:ring-2 ${error ? "focus:ring-red-500" : "focus:ring-blue-500"
         } transition-all`}
-      required={name === "sponser_id" || name === "sponser_name" ? false : required}
+      required={name === "sponser_id" || "sponser_name" ? null : required}
     />
     {error && <p className="text-red-400 text-xs mt-1 animate-fade-in">{error}</p>}
   </div>

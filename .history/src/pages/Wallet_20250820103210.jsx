@@ -148,7 +148,7 @@ function Wallet() {
             </div>
           </div> */}
 
-          <div className='grid grid-cols-2 gap-4 mb-3'>
+          <div className='grid grid-cols-2 gap-4 mb-5'>
             <div className='bg-gray-700/50 p-3 rounded-lg'>
               <p className='text-gray-400 text-sm'>Capital</p>
               <p className='text-white font-semibold text-lg'>
