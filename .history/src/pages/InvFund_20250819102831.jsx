@@ -60,30 +60,25 @@ function InvFund() {
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900"></div>
         </div>
       ) : (
-
-
-        invData.data.length == 0 ? (<div className='flex items-center justify-center text-2xl shadow-2xl'>Product Cart is Empty</div>) : (
-
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {
-          invData.data.map((item, index) => (
-            <InvFundCard
-              key={index}
-              icon={Wallet}
-              productName={item.product_name}
-              invested={item.invested}
-              capital={(item.capital)}
-              ROI={item.ROI}
-              joinDate={item.start_date}
-              endDate={item.end_date}
-              planType={item.plan_type}
-              plan={item.months_passed}
-            />
-          ))
-        }
-      </div>
-      )
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {
+            invData.data.map((item, index) => (
+              <InvFundCard
+                key={index}
+                icon={Wallet}
+                product={index + 1}
+                invested={item.invested}
+                capital={(item.invested) * 0.05}
+                ROI={item.current_profit}
+                joinDate={item.start_date}
+                endDate={item.end_date}
+                planType={item.plan_type}
+                plan={item.months_passed}
+              />
+            ))
+          }
+        </div>
       )
       }
 

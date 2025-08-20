@@ -436,7 +436,7 @@ const InputField = ({
 }) => (
   <div className={`${className} w-full relative animate-fade-in-up`} style={{ animationDelay: `${animationDelay}s` }}>
     <label className="block text-sm font-medium text-gray-300 mb-1">
-      {label} {required && "*"}
+      {label} {required) && "*"}
     </label>
     <input
       id={name}

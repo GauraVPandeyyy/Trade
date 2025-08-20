@@ -430,7 +430,7 @@ const InputField = ({
   value,
   onChange,
   error,
-  required,
+  name === "sponser_id" || "sponser_name" ? null : required,
   className = "",
   animationDelay = 0
 }) => (

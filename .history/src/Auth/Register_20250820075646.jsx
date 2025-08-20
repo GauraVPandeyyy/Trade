@@ -272,7 +272,6 @@ function Register() {
                 error={errors[field]}
                 className={field === "address" ? "md:col-span-2" : ""}
                 animationDelay={0.25}
-                required
               />
             );
           })}
@@ -298,7 +297,7 @@ function Register() {
                 {errors.captcha_code && <p className="text-red-400 text-xs mt-1 animate-fade-in">{errors.captcha_code}</p>}
               </div>
               
-              <div className="flex items-center justify-between bg-black/40 p-0 rounded-lg border border-gray-600 w-full md:w-auto">
+              <div className="flex items-center justify-between bg-black/40 p-3 rounded-lg border border-gray-600 w-full md:w-auto">
                 <div className="flex items-center">
                   <span className="text-xl font-bold tracking-widest text-white select-none bg-gradient-to-r from-gray-800 to-gray-900 p-2 rounded-md border border-gray-600">
                     {captcha}
@@ -447,7 +446,7 @@ const InputField = ({
       className={`w-full px-4 py-3 bg-gray-700 border ${error ? "border-red-500 shake-animation" : "border-gray-600"
         } rounded-lg text-white focus:outline-none focus:ring-2 ${error ? "focus:ring-red-500" : "focus:ring-blue-500"
         } transition-all`}
-      required={name === "sponser_id" || "sponser_name" ? null : required}
+      required={required}
     />
     {error && <p className="text-red-400 text-xs mt-1 animate-fade-in">{error}</p>}
   </div>

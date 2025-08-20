@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-function InvFundCard({ icon: Icon, productName, invested, capital, ROI, joinDate, endDate, planType, plan, delay = 300 }) {
+function InvFundCard({ icon: Icon, product, invested, capital, ROI, joinDate, endDate, planType, plan, delay = 300 }) {
 
     const [isVisible, setIsVisible] = useState(false);
 
@@ -34,7 +34,7 @@ function InvFundCard({ icon: Icon, productName, invested, capital, ROI, joinDate
                 {/* Header */}
                 <div className='flex items-center justify-center mb-4'>
                     {Icon && <Icon className='w-8 h-8 text-yellow-400 mr-3' />}
-                    <h2 className='text-xl font-bold text-white'>{productName} (₹{invested})</h2>
+                    <h2 className='text-xl font-bold text-white'>{product} (₹{invested})</h2>
                 </div>
 
                 {/* Main metrics */}

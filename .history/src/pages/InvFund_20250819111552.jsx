@@ -71,10 +71,10 @@ function InvFund() {
             <InvFundCard
               key={index}
               icon={Wallet}
-              productName={item.product_name}
+              product={index + 1}
               invested={item.invested}
               capital={(item.capital)}
-              ROI={item.ROI}
+              ROI={item.current_profit}
               joinDate={item.start_date}
               endDate={item.end_date}
               planType={item.plan_type}

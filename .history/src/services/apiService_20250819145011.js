@@ -103,7 +103,6 @@ export const joinProduct = async (productData) => {
 export const getIndiaStates = async () => {
   try {
     const response = await api.get("/get-india-states");
-    console.log("get-india-states",response.data);
     return response.data;
   } catch (error) {
     console.error("India states fetch failed:", error);

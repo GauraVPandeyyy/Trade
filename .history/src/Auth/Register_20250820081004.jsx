@@ -269,10 +269,10 @@ function Register() {
                 type={field === "gmail" ? "email" : "text"}
                 value={formData[field]}
                 onChange={handleChange}
-                error={errors[field]}
+                error={errors[]}
                 className={field === "address" ? "md:col-span-2" : ""}
                 animationDelay={0.25}
-                required
+                required={field === "sponser_id" || "sponser_name" ? null : required}
               />
             );
           })}
@@ -323,7 +323,7 @@ function Register() {
               type="submit"
               disabled={loading}
               className={`w-full py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg transition-all shadow-lg transform ${isSubmitting ? "scale-95" : "hover:scale-[1.02]"} hover:shadow-xl disabled:opacity-70 flex items-center justify-center font-semibold`}
-            >
+            >field
               {loading ? (
                 <>
                   <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

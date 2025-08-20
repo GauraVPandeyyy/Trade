@@ -430,7 +430,7 @@ const InputField = ({
   value,
   onChange,
   error,
-  required,
+  required
   className = "",
   animationDelay = 0
 }) => (

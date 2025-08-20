@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-function InvFundCard({ icon: Icon, productName, invested, capital, ROI, joinDate, endDate, planType, plan, delay = 300 }) {
+function InvFundCard({ icon: Icon, product, invested, capital, ROI, joinDate, endDate, planType, plan, delay = 300 }) {
 
     const [isVisible, setIsVisible] = useState(false);
 

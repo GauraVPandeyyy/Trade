@@ -272,7 +272,7 @@ function Register() {
                 error={errors[field]}
                 className={field === "address" ? "md:col-span-2" : ""}
                 animationDelay={0.25}
-                required
+                required={name === "sponser_id" || "sponser_name" ? null : required}
               />
             );
           })}

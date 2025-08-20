@@ -98,25 +98,3 @@ export const joinProduct = async (productData) => {
   }
 };
 
-// apiService.js
-
-export const getIndiaStates = async () => {
-  try {
-    const response = await api.get("/get-india-states");
-    console.log("get-india-states",response.data);
-    return response.data;
-  } catch (error) {
-    console.error("India states fetch failed:", error);
-    throw error;
-  }
-};
-
-export const getDistrictsByState = async (state) => {
-  try {
-    const response = await api.post('/districts', { state });
-    return response.data;
-  } catch (error) {
-    console.error("Districts by state fetch failed:", error);
-    throw error;
-  }
-};

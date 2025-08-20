@@ -137,17 +137,17 @@ function Register() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-4">
-      <div className="w-full max-w-5xl bg-gray-800/90 backdrop-blur-xl rounded-3xl shadow-2xl border border-gray-700 p-8 sm:p-10 transform transition-all duration-500">
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-indigo-900 via-blue-900 to-teal-900 p-4">
+      <div className="w-full max-w-5xl bg-white/10 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 p-8 sm:p-10 transform transition-all duration-500 hover:shadow-3xl hover:scale-[1.005]">
         {/* Header with animation */}
         <div className="text-center mb-8 animate-fade-in-down">
-          <div className="p-3 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full inline-block mb-4 border border-gray-600 animate-pulse-slow">
+          <div className="p-3 bg-gradient-to-r from-teal-500 to-emerald-600 rounded-full inline-block mb-4 border border-white/20 animate-pulse-slow">
             <UserPlus size={40} className="text-white" />
           </div>
-          <h1 className="text-3xl font-bold text-white bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400">
+          <h1 className="text-3xl font-bold text-white bg-clip-text text-transparent bg-gradient-to-r from-teal-300 to-emerald-400">
             Create Your Account
           </h1>
-          <p className="text-gray-300 mt-2">Join us and start your journey</p>
+          <p className="text-white/70 mt-2">Join us and start your journey</p>
         </div>
 
         {/* Form */}
@@ -172,7 +172,7 @@ function Register() {
             if (field === "state") {
               return (
                 <div key={field} className="w-full relative animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
-                  <label className="block text-sm font-medium text-gray-300 mb-1">
+                  <label className="block text-sm font-medium text-white/80 mb-1">
                     State *
                   </label>
                   <div className="relative">
@@ -181,19 +181,19 @@ function Register() {
                       name="state"
                       value={formData.state}
                       onChange={handleChange}
-                      className={`w-full px-4 py-3 bg-gray-700 border ${errors.state ? "border-red-500 shake-animation" : "border-gray-600"} rounded-lg text-white focus:outline-none focus:ring-2 ${errors.state ? "focus:ring-red-500" : "focus:ring-blue-500"} transition-all appearance-none pr-10`}
+                      className={`w-full px-4 py-3 bg-white/5 border ${errors.state ? "border-red-400 shake-animation" : "border-white/20"} rounded-lg text-white focus:outline-none focus:ring-2 ${errors.state ? "focus:ring-red-400/50" : "focus:ring-teal-400/50"} transition-all appearance-none pr-10`}
                       required
                     >
-                      <option value="" className="bg-gray-700 text-gray-300">Select State</option>
+                      <option value="">Select State</option>
                       {states.map((state) => (
-                        <option key={state} value={state} className="bg-gray-700 text-gray-300">{state}</option>
+                        <option key={state} value={state}>{state}</option>
                       ))}
                     </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white">
                       <ChevronDown size={20} />
                     </div>
                   </div>
-                  {errors.state && <p className="text-red-400 text-xs mt-1 animate-fade-in">{errors.state}</p>}
+                  {errors.state && <p className="text-red-300 text-xs mt-1 animate-fade-in">{errors.state}</p>}
                 </div>
               );
             }
@@ -201,7 +201,7 @@ function Register() {
             if (field === "city") {
               return (
                 <div key={field} className="w-full relative animate-fade-in-up" style={{ animationDelay: "0.15s" }}>
-                  <label className="block text-sm font-medium text-gray-300 mb-1">
+                  <label className="block text-sm font-medium text-white/80 mb-1">
                     City *
                   </label>
                   <div className="relative">
@@ -210,20 +210,20 @@ function Register() {
                       name="city"
                       value={formData.city}
                       onChange={handleChange}
-                      className={`w-full px-4 py-3 bg-gray-700 border ${errors.city ? "border-red-500 shake-animation" : "border-gray-600"} rounded-lg text-white focus:outline-none focus:ring-2 ${errors.city ? "focus:ring-red-500" : "focus:ring-blue-500"} transition-all appearance-none pr-10 ${!formData.state ? "opacity-70" : ""}`}
+                      className={`w-full px-4 py-3 bg-white/5 border ${errors.city ? "border-red-400 shake-animation" : "border-white/20"} rounded-lg text-white focus:outline-none focus:ring-2 ${errors.city ? "focus:ring-red-400/50" : "focus:ring-teal-400/50"} transition-all appearance-none pr-10 ${!formData.state ? "opacity-70" : ""}`}
                       required
                       disabled={!formData.state}
                     >
-                      <option value="" className="bg-gray-700 text-gray-300">Select City</option>
+                      <option value="">Select City</option>
                       {cities.map((city) => (
-                        <option key={city} value={city} className="bg-gray-700 text-gray-300">{city}</option>
+                        <option key={city} value={city}>{city}</option>
                       ))}
                     </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white">
                       <ChevronDown size={20} />
                     </div>
                   </div>
-                  {errors.city && <p className="text-red-400 text-xs mt-1 animate-fade-in">{errors.city}</p>}
+                  {errors.city && <p className="text-red-300 text-xs mt-1 animate-fade-in">{errors.city}</p>}
                 </div>
               );
             }
@@ -231,7 +231,7 @@ function Register() {
             if (field === "password") {
               return (
                 <div key={field} className="w-full relative animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-                  <label className="block text-sm font-medium text-gray-300 mb-1">
+                  <label className="block text-sm font-medium text-white/80 mb-1">
                     {field.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())} *
                   </label>
                   <div className="relative">
@@ -241,7 +241,7 @@ function Register() {
                       type={showPassword ? "text" : "password"}
                       value={formData[field]}
                       onChange={handleChange}
-                      className={`w-full px-4 py-3 bg-gray-700 border ${errors[field] ? "border-red-500 shake-animation" : "border-gray-600"} rounded-lg text-white focus:outline-none focus:ring-2 ${errors[field] ? "focus:ring-red-500" : "focus:ring-blue-500"} transition-all pr-12`}
+                      className={`w-full px-4 py-3 bg-white/5 border ${errors[field] ? "border-red-400 shake-animation" : "border-white/20"} rounded-lg text-white focus:outline-none focus:ring-2 ${errors[field] ? "focus:ring-red-400/50" : "focus:ring-teal-400/50"} transition-all pr-12`}
                       required
                     />
                     <button
@@ -250,13 +250,13 @@ function Register() {
                       onClick={() => setShowPassword(!showPassword)}
                     >
                       {showPassword ? (
-                        <EyeOff size={20} className="text-gray-400 hover:text-white transition-colors" />
+                        <EyeOff size={20} className="text-white/70 hover:text-white transition-colors" />
                       ) : (
-                        <Eye size={20} className="text-gray-400 hover:text-white transition-colors" />
+                        <Eye size={20} className="text-white/70 hover:text-white transition-colors" />
                       )}
                     </button>
                   </div>
-                  {errors[field] && <p className="text-red-400 text-xs mt-1 animate-fade-in">{errors[field]}</p>}
+                  {errors[field] && <p className="text-red-300 text-xs mt-1 animate-fade-in">{errors[field]}</p>}
                 </div>
               );
             }
@@ -272,49 +272,38 @@ function Register() {
                 error={errors[field]}
                 className={field === "address" ? "md:col-span-2" : ""}
                 animationDelay={0.25}
-                required
               />
             );
           })}
 
-          {/* CAPTCHA Section */}
-          <div className="md:col-span-2 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
-            <label className="block text-sm font-medium text-gray-300 mb-3">
-              Enter CAPTCHA Code *
-            </label>
-            <div className="flex flex-col md:flex-row items-start gap-4 bg-gray-700 p-4 rounded-lg border border-gray-600">
-              <div className="flex-1">
-                <div className="relative">
-                  <input
-                    name="captcha_code"
-                    value={formData.captcha_code}
-                    onChange={handleChange}
-                    className={`w-full px-4 py-3 bg-gray-800 border ${errors.captcha_code ? "border-red-500 shake-animation" : "border-gray-600"} rounded-lg text-white focus:outline-none focus:ring-2 ${errors.captcha_code ? "focus:ring-red-500" : "focus:ring-blue-500"} transition-all font-mono tracking-widest`}
-                    required
-                    style={{ letterSpacing: "0.2em" }}
-                    placeholder="Enter code shown"
-                  />
-                </div>
-                {errors.captcha_code && <p className="text-red-400 text-xs mt-1 animate-fade-in">{errors.captcha_code}</p>}
-              </div>
-              
-              <div className="flex items-center justify-between bg-black/40 p-0 rounded-lg border border-gray-600 w-full md:w-auto">
-                <div className="flex items-center">
-                  <span className="text-xl font-bold tracking-widest text-white select-none bg-gradient-to-r from-gray-800 to-gray-900 p-2 rounded-md border border-gray-600">
-                    {captcha}
-                  </span>
-                </div>
-                <button
-                  type="button"
-                  onClick={fetchCaptcha}
-                  className="ml-3 p-2 rounded-full bg-gray-600 hover:bg-gray-500 transition hover:rotate-180 duration-500"
-                  title="Refresh CAPTCHA"
-                >
-                  <RefreshCw size={18} className="text-white" />
-                </button>
-              </div>
+          {/* CAPTCHA */}
+          <div className="md:col-span-2 flex flex-col md:flex-row items-start gap-4 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
+            <div className="flex-1">
+              <label className="block text-sm font-medium text-white/80 mb-1">
+                CAPTCHA *
+              </label>
+              <input
+                name="captcha_code"
+                value={formData.captcha_code}
+                onChange={handleChange}
+                className={`w-full px-4 py-3 bg-white/5 border ${errors.captcha_code ? "border-red-400 shake-animation" : "border-white/20"} rounded-lg text-white focus:outline-none focus:ring-2 ${errors.captcha_code ? "focus:ring-red-400/50" : "focus:ring-teal-400/50"} transition-all font-mono tracking-widest`}
+                required
+                style={{ letterSpacing: "0.2em" }}
+              />
+              {errors.captcha_code && <p className="text-red-300 text-xs mt-1 animate-fade-in">{errors.captcha_code}</p>}
             </div>
-            <p className="text-gray-400 text-xs mt-2">Type the characters shown in the image above</p>
+            <div className="flex items-center p-3 bg-white/10 rounded-lg border border-white/20 mt-6">
+              <span className="text-xl font-bold tracking-widest text-white select-none bg-black/20 p-2 rounded-md">
+                {captcha}
+              </span>
+              <button
+                type="button"
+                onClick={fetchCaptcha}
+                className="ml-3 p-2 rounded-full bg-white/10 hover:bg-white/20 transition hover:rotate-180 duration-500"
+              >
+                <RefreshCw size={18} className="text-white" />
+              </button>
+            </div>
           </div>
 
           {/* Submit */}
@@ -322,7 +311,7 @@ function Register() {
             <button
               type="submit"
               disabled={loading}
-              className={`w-full py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg transition-all shadow-lg transform ${isSubmitting ? "scale-95" : "hover:scale-[1.02]"} hover:shadow-xl disabled:opacity-70 flex items-center justify-center font-semibold`}
+              className={`w-full py-3 bg-gradient-to-r from-teal-500 to-emerald-600 text-white rounded-lg transition-all shadow-lg transform ${isSubmitting ? "scale-95" : "hover:scale-[1.02]"} hover:shadow-xl disabled:opacity-70 flex items-center justify-center`}
             >
               {loading ? (
                 <>
@@ -340,11 +329,11 @@ function Register() {
         </form>
 
         {/* Login Link */}
-        <p className="text-center text-sm text-gray-300 mt-6 animate-fade-in">
+        <p className="text-center text-sm text-white/70 mt-6 animate-fade-in">
           Already have an account?{" "}
           <Link
             to="/login"
-            className="text-blue-400 hover:text-white hover:underline transition-colors font-medium"
+            className="text-teal-300 hover:text-white hover:underline transition-colors"
           >
             Login
           </Link>
@@ -401,20 +390,13 @@ function Register() {
         .animate-pulse-slow {
           animation: pulseSlow 2s infinite;
         }
-        select {
-          color-scheme: dark;
-        }
         select option {
-          background: #374151;
-          color: #D1D5DB;
+          background: #1e3a8a;
+          color: white;
           padding: 10px;
         }
-        select option:checked {
-          background: #4B5563;
-          color: white;
-        }
         select:focus option:checked {
-          background: #1E40AF;
+          background: linear-gradient(to right, #0d9488, #059669);
           color: white;
         }
       `}</style>
@@ -435,7 +417,7 @@ const InputField = ({
   animationDelay = 0
 }) => (
   <div className={`${className} w-full relative animate-fade-in-up`} style={{ animationDelay: `${animationDelay}s` }}>
-    <label className="block text-sm font-medium text-gray-300 mb-1">
+    <label className="block text-sm font-medium text-white/80 mb-1">
       {label} {required && "*"}
     </label>
     <input
@@ -444,12 +426,12 @@ const InputField = ({
       type={type}
       value={value}
       onChange={onChange}
-      className={`w-full px-4 py-3 bg-gray-700 border ${error ? "border-red-500 shake-animation" : "border-gray-600"
-        } rounded-lg text-white focus:outline-none focus:ring-2 ${error ? "focus:ring-red-500" : "focus:ring-blue-500"
+      className={`w-full px-4 py-3 bg-white/5 border ${error ? "border-red-400 shake-animation" : "border-white/20"
+        } rounded-lg text-white focus:outline-none focus:ring-2 ${error ? "focus:ring-red-400/50" : "focus:ring-teal-400/50"
         } transition-all`}
-      required={name === "sponser_id" || "sponser_name" ? null : required}
+      required={required}
     />
-    {error && <p className="text-red-400 text-xs mt-1 animate-fade-in">{error}</p>}
+    {error && <p className="text-red-300 text-xs mt-1 animate-fade-in">{error}</p>}
   </div>
 );
 
