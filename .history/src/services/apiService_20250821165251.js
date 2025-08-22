@@ -1,0 +1,176 @@
+import axios from 'axios';
+import { toast } from 'react-toastify';
+
+const API_BASE_URL = "https://newadmin.gamedemo.tech/api";
+const api = axios.create({
+  baseURL: API_BASE_URL,
+  timeout: 30000
+});
+
+
+export const getCaptcha = async () => {
+  try {
+    const response = await api.get("/gaurav-captcha");
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching captcha:", error);
+    throw error;
+  }
+};
+
+
+export const registerUser = async (userData) => {
+  try {
+    const response = await axios.post(`${API_BASE_URL}/gaurav_register`, userData);
+    console.log("Register", response.data);
+    return response.data;
+  } catch (error) {
+    console.error("Registration failed:", error);
+    throw error;
+  }
+};
+
+export const loginUser = async (credentials) => {
+  try {
+    const response = await axios.post(`${API_BASE_URL}/gaurav_login`, credentials);
+    console.log(response.data);
+    console.log(response.data.user);
+    return response.data;
+  } catch (error) {
+    console.error("Login failed:", error);
+    throw error;
+  }
+};
+
+
+
+
+// side bar data
+
+export const getHomeData = async (userId) => {
+  try {
+    const response = await api.get(`/user-dashboard/${userId}`);
+    // console.log("Home data" ,response.data);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching user-dashboard :", error);
+    toast.error("Error fetching user-dashboard:", error);
+    throw error;
+  }
+}
+
+export const getInvestmentSummary = async (userId) => {
+  try {
+    const response = await api.get(`/investment-summary/${userId}`);
+    return response.data;
+  } catch (error) {
+    console.error("Investment summary fetch failed:", error);
+    throw error;
+  }
+};
+
+export const getCategories = async () => {
+  try {
+    const response = await api.get("/products");
+    console.log("categories", response.data)
+    return response.data.types;
+  } catch (error) {
+    console.error("Product fetch failed:", error);
+    throw error;
+  }
+}
+
+export const getPackagesByType = async (id) => {
+  try {
+    const response = await api.get(`products-by-type?type=${id}`);
+    return response.data.products;
+  } catch (error) {
+    console.error("Product by type fetch failed:", error);
+    throw error;
+  }
+}
+
+export const joinProduct = async (productData) => {
+  try {
+    console.log("Sending product data:", productData);
+    const response = await api.post("/invest", productData);
+    console.log(response.data);
+    return response.data;
+  } catch (error) {
+    console.error("Join product failed:", error.response?.data || error);
+    throw error;
+  }
+};
+
+// apiService.js
+
+export const getIndiaStates = async () => {
+  try {
+    const response = await api.get("/get-india-states");
+    console.log("get-india-states", response.data);
+    return response.data;
+  } catch (error) {
+    console.error("India states fetch failed:", error);
+    throw error;
+  }
+};
+
+export const getDistrictsByState = async (state) => {
+  try {
+    const response = await api.post('/districts', { state });
+    return response.data;
+  } catch (error) {
+    console.error("Districts by state fetch failed:", error);
+    throw error;
+  }
+};
+
+
+export const submitKyc = async (kycData) => {
+  try {
+    console.log("Sending KYC data:", {
+      ...kycData,
+      aadhaar_front: kycData.aadhaar_front ? kycData.aadhaar_front.substring(0, 50) + '...' : null,
+      aadhaar_back: kycData.aadhaar_back ? kycData.aadhaar_back.substring(0, 50) + '...' : null,
+      pan_front: kycData.pan_front ? kycData.pan_front.substring(0, 50) + '...' : null
+    });
+
+    const response = await api.post('/submit-kyc', kycData, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    });
+
+    console.log("KYC Response:", response.data);
+
+    if (response.data.status === true) {
+      console.log("submitted successfully");
+      return response.data;
+    } else {
+      // Handle backend validation errors
+      throw {
+        message: response.data.message || 'KYC submission failed',
+        errors: response.data.errors || {}
+      };
+    }
+  } catch (error) {
+    console.error("KYC API Error:", error);
+    
+    if (error.response) {
+      // Server responded with error status
+      const errorData = error.response.data;
+      throw {
+        message: errorData.message || 'KYC submission failed',
+        errors: errorData.errors || {},
+        status: error.response.status
+      };
+    } else if (error.request) {
+      // Request was made but no response received
+      throw new Error('No response from server. Please check your internet connection.');
+    } else {
+      // Something else went wrong
+      throw new Error(error.message || 'Error setting up the request');
+    }
+  }
+};
